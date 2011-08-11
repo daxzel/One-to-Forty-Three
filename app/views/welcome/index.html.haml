@@ -1,3 +1,12 @@
 %h1 Welcome#index
 %p Find me in app/views/welcome/index.html.haml
 %p= t("popular_photos")
+
+
+
+- content_for :leftbar do
+  = render :partial => 'leftbar'
+
+
+- content_for :rightbar do
+  = render :partial => 'leftbar'
