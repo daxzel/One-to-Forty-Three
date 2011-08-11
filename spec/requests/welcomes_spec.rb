@@ -7,4 +7,11 @@ describe "Welcomes" do
       page.should have_content("Популярные фотографии")
     end
   end
+
+  describe "About" do
+    it "should have about keyword" do
+      visit about_path
+      page.should have_content("about")
+    end
+  end
 end

@@ -1,7 +1,7 @@
 OneTo43::Application.routes.draw do
   get "welcome/index"
 
-  get "welcome/about"
+  get "welcome/about", :as => "about"
 
   root :to => "welcome#index"
   # The priority is based upon order of creation:
