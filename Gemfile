@@ -10,6 +10,8 @@ gem "paperclip"
 gem "jquery-rails"
 gem "haml-rails"
 
+gem "rake", "0.9.2"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
