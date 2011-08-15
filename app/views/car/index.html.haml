@@ -1,0 +1,10 @@
+= render :partial => "photos"
+
+%p= link_to t("upload_photos"), upload_car_path
+
+- content_for :leftbar do
+  = render :partial => 'leftbar'
+
+- content_for :rightbar do
+  = render :partial => 'rightbar'
+
