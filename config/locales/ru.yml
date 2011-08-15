@@ -6,4 +6,6 @@ ru:
   default_page_title: "Test_page_title"
   main_page: "Главная"
   popular_photos: "Популярные фотографии"
+  all_photos: "Все фотографии"
+  upload_photos: "Загрузка фотографий"
 
