@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CarController do
+describe PhotoController do
 
   describe "GET 'index'" do
     it "should be successful" do

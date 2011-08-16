@@ -5,8 +5,9 @@ OneTo43::Application.routes.draw do
   get "welcome/about", :as => "about"
 
   # car
-  get "car/index", :as => "cars"
-  get "car/upload", :as => "upload_car"
+  get "photo/index", :as => "photos"
+  get "photo/upload", :as => "upload_photo"
+  post "photo/upload", :as => "upload_photo_data"
 
   # misc
   root :to => "welcome#index"
