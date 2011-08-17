@@ -4,12 +4,8 @@ OneTo43::Application.routes.draw do
   get "welcome/index"
   get "welcome/about", :as => "about"
 
-  # car
-  get "photo/index", :as => "photos"
-  get "photo/upload", :as => "upload_photo"
-  post "photo/upload", :as => "upload_photo_data"
+  resources :photos
 
-  # misc
   root :to => "welcome#index"
 
   # The priority is based upon order of creation:

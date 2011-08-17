@@ -1,0 +1,15 @@
+%p= t("all_photos")
+%p= link_to t("upload_photos"), new_photo_path
+
+%table
+  %td
+    - for item in @photos
+      %tr
+        = image_tag item.photo.url
+
+- content_for :leftbar do
+  = render :partial => 'leftbar'
+
+- content_for :rightbar do
+  = render :partial => 'rightbar'
+

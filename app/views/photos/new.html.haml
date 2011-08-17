@@ -1,6 +1,6 @@
-= render :partial => "photos"
+%p= t("upload_photos")
 
-%p= link_to t("upload_photos"), upload_photo_path
+= render :partial => 'form'
 
 - content_for :leftbar do
   = render :partial => 'leftbar'
