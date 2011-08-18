@@ -1,0 +1,18 @@
+!!! Strict
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    = stylesheet_link_tag "application"
+    %title= "page_title"
+    
+  %body
+    #header.container_12
+      .grid_12= render :partial => "shared/header"
+
+    #content.container_12
+      #leftbar.grid_3= yield(:leftbar)
+      #content.grid_6= yield
+      #rightbar.grid_3= yield(:rightbar)
+
+    #footer.container_12
+      .grid_12= render :partial => "shared/footer"
+

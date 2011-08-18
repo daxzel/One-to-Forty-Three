@@ -1,0 +1,15 @@
+%table
+  %td
+    - for item in @cars
+      %br
+      %h2
+        %strong=item.title
+      -if item.wiki.length<1
+        %h6
+        %p=item.wiki
+      -else
+        %h4
+          %p=item.wiki 
+        %p=link_to (t("detail"), :controller => 'cars', :action => 'show', :id => item.id)
+%p=link_to (t("Add_car"), :controller => 'cars', :action => 'new')
+

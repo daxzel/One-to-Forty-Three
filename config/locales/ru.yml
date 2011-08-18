@@ -1,0 +1,14 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ru:
+  hello: "Hello world"
+  default_page_title: "Test_page_title"
+  main_page: "Главная"
+  popular_photos: "Популярные фотографии"
+  all_photos: "Все фотографии"
+  upload_photos: "Загрузка фотографий"
+  submit_upload: "Загрузить"
+  detail: "Подробнее"
+  Add_car: "Добавить вики"
+
