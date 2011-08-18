@@ -2,6 +2,9 @@ OneTo43::Application.routes.draw do
 
   resources :cars
 
+  match 'wiki/:name' => 'wiki#index'
+ 
+
   # welcome
   get "welcome/index"
   get "welcome/about", :as => "about"

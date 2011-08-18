@@ -10,5 +10,11 @@ ru:
   upload_photos: "Загрузка фотографий"
   submit_upload: "Загрузить"
   detail: "Подробнее"
-  Add_car: "Добавить вики"
+  add_car: "Добавить машину"
+  articles_in_auto_wiki: "Статьи в авто-Wiki" 
+  of: "из"
+  all: "все"
+  delete: "Удалить"
+  edit: "Изменить"
+  listing_car: "Список машин"
 

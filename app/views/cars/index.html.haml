@@ -1,4 +1,5 @@
-%h1 Listing cars
+%h1 
+  =t("listing_car")
 
 %table
   %tr
@@ -12,10 +13,10 @@
     %tr
       %td= car.title
       %td= car.wiki
-      %td= link_to 'Show', car
-      %td= link_to 'Edit', edit_car_path(car)
-      %td= link_to 'Destroy', car, :confirm => 'Are you sure?', :method => :delete
+      -#%td= link_to 'Show', car
+      %td= link_to t("edit"), edit_car_path(car)
+      %td= link_to t("delete"), car, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New Car', new_car_path
+= link_to t("add_car"), new_car_path

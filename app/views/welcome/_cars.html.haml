@@ -1,15 +1,19 @@
-%table
-  %td
-    - for item in @cars
-      %br
-      %h2
-        %strong=item.title
-      -if item.wiki.length<1
-        %h6
-        %p=item.wiki
-      -else
-        %h4
-          %p=item.wiki 
-        %p=link_to (t("detail"), :controller => 'cars', :action => 'show', :id => item.id)
-%p=link_to (t("Add_car"), :controller => 'cars', :action => 'new')
+%h3.title  
+  %p
+    =t("articles_in_auto_wiki") + ' ('
+    =@count_cars 
+    =t("of") + ' '
+    =@count_all_cars 
+    -if @count_cars<@count_all_cars
+      =link_to t("all"), cars_path	
+    )
+- for item in @cars
+  %br
+  %strong=item.title
+  -if item.wiki.length<300
+    %p=item.wiki
+  -else
+    %p=item.wiki[0..300] 
+    %p=link_to (t("detail"), 'wiki/'+item.title )
+=link_to (t("add_car"), new_car_path)
 
