@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-	@count_cars = 3
+	@count_cars = 4
 	@count_all_cars = Car.count
 	if @count_cars>@count_all_cars
 	  @count_cars = @count_all_cars

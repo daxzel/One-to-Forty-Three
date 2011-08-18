@@ -24,7 +24,7 @@ describe CarsController do
   # Car. As you add validations to Car, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    FactoryGirl.attributes_for :car
   end
 
   describe "GET index" do
@@ -38,7 +38,7 @@ describe CarsController do
   describe "GET show" do
     it "assigns the requested car as @car" do
       car = Car.create! valid_attributes
-      get :show, :id => car.id.to_s
+      get :show, :id => car.to_param.to_s
       assigns(:car).should eq(car)
     end
   end
@@ -53,7 +53,7 @@ describe CarsController do
   describe "GET edit" do
     it "assigns the requested car as @car" do
       car = Car.create! valid_attributes
-      get :edit, :id => car.id.to_s
+      get :edit, :id => car.to_param.to_s
       assigns(:car).should eq(car)
     end
   end
@@ -104,18 +104,19 @@ describe CarsController do
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Car.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => car.id, :car => {'these' => 'params'}
+        put :update, :id => car.to_param, :car => {'these' => 'params'}
       end
 
       it "assigns the requested car as @car" do
         car = Car.create! valid_attributes
-        put :update, :id => car.id, :car => valid_attributes
+        put :update, :id => car.to_param, :car => valid_attributes
         assigns(:car).should eq(car)
       end
 
       it "redirects to the car" do
-        car = Car.create! valid_attributes
-        put :update, :id => car.id, :car => valid_attributes
+        a = valid_attributes
+        car = Car.create! a
+        put :update, :id => car.to_param, :car => a
         response.should redirect_to(car)
       end
     end
@@ -125,7 +126,7 @@ describe CarsController do
         car = Car.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Car.any_instance.stub(:save).and_return(false)
-        put :update, :id => car.id.to_s, :car => {}
+        put :update, :id => car.to_param, :car => {}
         assigns(:car).should eq(car)
       end
 
@@ -133,7 +134,7 @@ describe CarsController do
         car = Car.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Car.any_instance.stub(:save).and_return(false)
-        put :update, :id => car.id.to_s, :car => {}
+        put :update, :id => car.to_param.to_s, :car => {}
         response.should render_template("edit")
       end
     end
@@ -143,13 +144,13 @@ describe CarsController do
     it "destroys the requested car" do
       car = Car.create! valid_attributes
       expect {
-        delete :destroy, :id => car.id.to_s
+        delete :destroy, :id => car.to_param.to_s
       }.to change(Car, :count).by(-1)
     end
 
     it "redirects to the cars list" do
       car = Car.create! valid_attributes
-      delete :destroy, :id => car.id.to_s
+      delete :destroy, :id => car.to_param.to_s
       response.should redirect_to(cars_url)
     end
   end

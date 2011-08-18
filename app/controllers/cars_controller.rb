@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
 
+  before_filter :find_object, :only => [:edit, :show, :update, :destroy]
   
   # GET /cars
   # GET /cars.xml
@@ -15,7 +16,6 @@ class CarsController < ApplicationController
   # GET /cars/1
   # GET /cars/1.xml
   def show
-    @car = Car.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,6 @@ class CarsController < ApplicationController
 
   # GET /cars/1/edit
   def edit
-    @car = Car.find(params[:id])
   end
 
   # POST /cars
@@ -58,8 +57,6 @@ class CarsController < ApplicationController
   # PUT /cars/1
   # PUT /cars/1.xml
   def update
-    @car = Car.find(params[:id])
-
     respond_to do |format|
       if @car.update_attributes(params[:car])
         format.html { redirect_to(@car, :notice => 'Car was successfully updated.') }
@@ -74,7 +71,6 @@ class CarsController < ApplicationController
   # DELETE /cars/1
   # DELETE /cars/1.xml
   def destroy
-    @car = Car.find(params[:id])
     @car.destroy
 
     respond_to do |format|
@@ -82,4 +78,13 @@ class CarsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+
+  def find_object
+    @car = Car.find_by_title(params[:id])
+    raise ActiveRecord::RecordNotFound, "Could not find the car '#{params[:id]}'" unless @car
+  end
+
+
 end

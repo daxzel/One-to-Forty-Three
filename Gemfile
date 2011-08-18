@@ -35,4 +35,6 @@ gem "rake", "0.9.2"
 group :development, :test do
    gem 'capybara'
    gem "rspec-rails"
+   gem "factory_girl_rails"
+   #gem "factory_girl"
 end
