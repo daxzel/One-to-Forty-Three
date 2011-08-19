@@ -1,19 +1,8 @@
 %h3.title  
-  %p
-    =t("articles_in_auto_wiki") + ' ('
-    =@count_cars 
-    =t("of") + ' '
-    =@count_all_cars 
-    -if @count_cars<@count_all_cars
-      =link_to t("all"), cars_path	
-    )
+  =info_view_car(@count_cars.to_s,@count_all_cars.to_s)
 - for item in @cars
   %br
   %strong=item.title
-  -if item.wiki.length<300
-    %p=item.wiki
-  -else
-    %p=item.wiki[0..300] 
-    %p=link_to (t("detail"), 'wiki/'+item.title )
+  =excerpt(item.wiki,'is', :radius => 100) 
+  %p=link_to (t("detail"), car_path(item.title) )
 =link_to (t("add_car"), new_car_path)
-
