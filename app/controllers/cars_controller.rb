@@ -5,7 +5,7 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.xml
   def index
-    @cars = Car.all
+    @cars = Car.paginate(:page => params[:page], :per_page =>10)
   end
 
   # GET /cars/1
@@ -27,30 +27,11 @@ class CarsController < ApplicationController
   # POST /cars.xml
   def create
     @car = Car.new(params[:car])
-
-    respond_to do |format|
-      if @car.save
-        format.html { redirect_to(@car, :notice => 'Car was successfully created.') }
-        format.xml  { render :xml => @car, :status => :created, :location => @car }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @car.errors, :status => :unprocessable_entity }
-      end
-    end
   end
 
   # PUT /cars/1
   # PUT /cars/1.xml
   def update
-    respond_to do |format|
-      if @car.update_attributes(params[:car])
-        format.html { redirect_to(@car, :notice => 'Car was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @car.errors, :status => :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /cars/1
