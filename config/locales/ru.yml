@@ -17,4 +17,7 @@ ru:
   delete: "Удалить"
   edit: "Изменить"
   listing_car: "Список машин"
-
+  will_paginate:
+    previous_label: "&#8592; Предыдущая"
+    next_label: "Следующая &#8594;"
+    page_gap: "&страница;" 

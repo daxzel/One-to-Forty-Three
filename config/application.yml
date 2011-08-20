@@ -1,7 +1,7 @@
 # app/config/application.yml
 defaults: &defaults
   count_view_cars : 4
-
+  count_cars_in_page : 3
 development:
   <<: *defaults
 

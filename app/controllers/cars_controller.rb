@@ -5,7 +5,7 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.xml
   def index
-    @cars = Car.paginate(:page => params[:page], :per_page =>10)
+    @cars = Car.paginate(:page => params[:page], :per_page =>Settings.count_cars_in_page)
   end
 
   # GET /cars/1
@@ -27,6 +27,12 @@ class CarsController < ApplicationController
   # POST /cars.xml
   def create
     @car = Car.new(params[:car])
+    if @car.save
+      flash[:notice] = "Successfully created!"
+      redirect_to cars_path
+    else
+      redirect_to new_car_path
+    end
   end
 
   # PUT /cars/1

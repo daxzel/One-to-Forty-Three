@@ -1,16 +1,4 @@
-= form_for @car do |f|
-  -if @car.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@car.errors.count, "error")} prohibited this car from being saved:"
-      %ul
-        - @car.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :title
+= form_for @car, :html => { :multipart => true }  do |f|
     = f.text_field :title
-  .field
-    = f.label :wiki
     = f.text_area :wiki
-  .actions
     = f.submit 'Save'
