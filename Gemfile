@@ -12,6 +12,8 @@ gem "haml-rails"
 
 gem "rake", "0.9.2"
 
+gem "settingslogic"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

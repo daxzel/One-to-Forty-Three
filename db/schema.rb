@@ -10,11 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110817222309) do
+ActiveRecord::Schema.define(:version => 20110819171855) do
 
   create_table "cars", :force => true do |t|
     t.string   "title"
     t.text     "wiki"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "configs", :force => true do |t|
+    t.integer  "count_cars_view"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
