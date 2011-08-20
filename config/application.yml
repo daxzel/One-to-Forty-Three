@@ -1,0 +1,13 @@
+# app/config/application.yml
+defaults: &defaults
+  count_view_cars : 4
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults  
+
