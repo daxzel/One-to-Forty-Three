@@ -11,7 +11,7 @@
     %strong=item.title
     =excerpt(item.wiki,'is', :radius => 100) 
     %p
-      =link_to (t("detail"), car_path(item.title) )
+      =link_to(t("detail"), car_path(item.title))
       =link_to t("edit"), edit_car_path(item.title)
       =link_to t("delete"), item, :confirm => 'Are you sure?', :method => :delete
   %br

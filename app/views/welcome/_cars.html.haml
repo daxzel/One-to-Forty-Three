@@ -1,8 +1,8 @@
 %h3.title  
-  =info_view_car(@count_cars.to_s,@count_all_cars.to_s)
+  = info_view_car(@count_cars.to_s, @count_all_cars.to_s)
 - for item in @cars
   %br
-  %strong=item.title
-  =excerpt(item.wiki,'is', :radius => 100) 
-  %p=link_to (t("detail"), car_path(item.title) )
-=link_to (t("add_car"), new_car_path)
+  %strong= item.title
+  = excerpt(item.wiki,'is', :radius => 100) 
+  %p= link_to(t("detail"), cars_path(item.title) )
+= link_to(t("add_car"), new_car_path)
