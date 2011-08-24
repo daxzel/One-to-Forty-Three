@@ -1,12 +1,12 @@
 %p= t("all_photos")
-%p= link_to t("upload_photos"), new_photo_path
+%p= link_to t("upload_photos"), new_car_photo_path(@car_id)
 
 %table
   %td
-    - for item in @photos
+    - @photos.each do |item|
       %tr
         = image_tag item.photo.url
-        = link_to "car", car_path(item.car)
+        -#= link_to "car", car_path(@car_id)
 
 - content_for :leftbar do
   = render :partial => 'leftbar'

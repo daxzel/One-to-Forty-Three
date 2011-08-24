@@ -2,6 +2,8 @@
 
 = render 'form'
 
+= link_to t("upload_photos"), new_car_photo_path(@car.title)
+\|
 = link_to 'Show', @car
 \|
 = link_to 'Back', cars_path

@@ -1,13 +1,14 @@
 OneTo43::Application.routes.draw do
 
-  resources :cars
 
   # welcome
   get "welcome/index"
   get "welcome/about", :as => "about"
-
-  resources :photos
-
+  
+  resources :cars do
+    resources :photos
+  end
+  
   root :to => "welcome#index"
 
   # The priority is based upon order of creation:
