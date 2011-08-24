@@ -1,6 +1,8 @@
 OneTo43::Application.routes.draw do
 
 
+  devise_for :users
+
   # welcome
   get "welcome/index"
   get "welcome/about", :as => "about"
