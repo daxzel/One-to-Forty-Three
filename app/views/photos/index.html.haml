@@ -6,7 +6,6 @@
     - @photos.each do |item|
       %tr
         = image_tag item.photo.url
-        -#= link_to "car", car_path(@car_id)
 
 - content_for :leftbar do
   = render :partial => 'leftbar'

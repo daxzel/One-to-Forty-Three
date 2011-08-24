@@ -1,11 +1,15 @@
 %p#notice= notice
+%table
+  %td
+    = car_photo (@car) 
+  %td
+    %p
+      %b Title:
+      = @car.title
+    %p
+      %b Wiki:
+      = @car.wiki
 
-%p
-  %b Title:
-  = @car.title
-%p
-  %b Wiki:
-  = @car.wiki
 
 = link_to 'Edit', edit_car_path(@car)
 \|

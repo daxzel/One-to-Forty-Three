@@ -3,13 +3,13 @@
 %head
   = stylesheet_link_tag "pagination"
 %body
-  #pages.digg_pagination
+  #pages.flickr_pagination
     =will_paginate @cars, :container => false
 
   - for item in @cars
     %br
     %strong=item.title
-    =excerpt(item.wiki,'is', :radius => 100) 
+    %p=truncate(item.wiki, :length => 100) 
     %p
       =link_to(t("detail"), car_path(item.title))
       =link_to t("edit"), edit_car_path(item.title)

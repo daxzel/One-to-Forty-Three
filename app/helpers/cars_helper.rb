@@ -11,4 +11,9 @@ module CarsHelper
     result += " ) "
     result 
   end
+
+  def car_photo(car)
+    photo = car.photos.offset(rand(car.photos.count)).first 
+    image_tag photo.photo.url    
+  end
 end
