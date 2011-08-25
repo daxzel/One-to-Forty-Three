@@ -18,7 +18,7 @@ class PhotosController < ApplicationController
 	def create
                 @photo = @car.photos.create(params[:photo])
 		if @photo.save
-			flash[:notice] = "Successfully created!"
+			flash[:notice] = I18n.t("Successfully created!")
                         redirect_to car_photos_path(params[:car_id])
 
 		else
@@ -35,12 +35,15 @@ class PhotosController < ApplicationController
 		
 	end
 
-  	def find_car
-    		@car = Car.find_by_title(params[:car_id])
-    		raise ActiveRecord::RecordNotFound, "Could not find the car '#{params[:id]}'" unless @car
- 	end
 	
 	def destroy
 		
 	end
+
+        private
+
+  	def find_car
+    		@car = Car.find_by_title(params[:car_id])
+    		raise ActiveRecord::RecordNotFound, "Could not find the car '#{params[:id]}'" unless @car
+ 	end
 end

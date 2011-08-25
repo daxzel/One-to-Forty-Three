@@ -4,5 +4,5 @@
   %br
   %strong= item.title
   %p=truncate(item.wiki, :length => 100) 
-  %p= link_to(t("detail"), cars_path(item.title) )
+  %p= link_to(t("detail"), item )
 = link_to(t("add_car"), new_car_path)

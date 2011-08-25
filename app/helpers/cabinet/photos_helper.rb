@@ -1,0 +1,2 @@
+module Cabinet::PhotosHelper
+end

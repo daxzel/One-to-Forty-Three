@@ -1,6 +1,8 @@
 OneTo43::Application.routes.draw do
 
 
+  get "photos/index"
+
   devise_for :users
 
   # welcome
@@ -8,6 +10,10 @@ OneTo43::Application.routes.draw do
   get "welcome/about", :as => "about"
   
   resources :cars do
+    resources :photos
+  end
+
+  namespace :cabinet do
     resources :photos
   end
   
