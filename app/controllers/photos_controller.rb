@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 	before_filter :find_car, :only => [:index, :new, :edit, :create, :show, :update, :destroy]
 
 	def index
-                @photos = @car.photos
+                @photos = @car.photos.paginate(:page => params[:page], :per_page => 9)
 	end
 	
 	def show

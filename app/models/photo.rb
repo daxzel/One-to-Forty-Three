@@ -1,7 +1,8 @@
 class Photo < ActiveRecord::Base
 	has_attached_file :photo,
                   :url  => "/assets/products/:id/:style/:basename.:extension",
-                  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+                  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension",
+		  :styles => {:medium =>"300x300>"} 
 
 	validates_attachment_presence :photo
 	validates_attachment_size :photo, :less_than => 5.megabytes

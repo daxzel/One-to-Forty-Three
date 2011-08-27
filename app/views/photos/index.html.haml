@@ -1,15 +1,22 @@
-%p= t("all_photos")
-%p= link_to t("upload_photos"), new_car_photo_path(@car_id)
-
-%table
-  %td
-    - @photos.each do |item|
+%head
+  = stylesheet_link_tag "pagination"
+%body
+  %p= t("all_photos")
+  %p= link_to t("upload_photos"), new_car_photo_path(params[:car_id])
+  -#=gallery(@photos)
+  %table
+    - (0..@photos.length.div(3)).each do |i|
       %tr
-        = image_tag item.photo.url
+        -(0.. [@photos.length - i*3,3].min-1).each do |j|
+          %td
+            =image_tag @photos[i*3+j].photo.url(:medium)
 
-- content_for :leftbar do
-  = render :partial => 'leftbar'
+  #pages.flickr_pagination
+    =will_paginate @photos, :container => false
 
-- content_for :rightbar do
-  = render :partial => 'rightbar'
+  - content_for :leftbar do
+    = render :partial => 'leftbar'
+
+  - content_for :rightbar do
+    = render :partial => 'rightbar'
 
