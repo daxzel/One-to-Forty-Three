@@ -13,7 +13,13 @@ module CarsHelper
   end
 
   def car_photo(car)
-    photo = car.photos.offset(rand(car.photos.count)).first 
-    image_tag photo.photo.url    
+    photos = car.photos
+    if photos.length > 0 
+      photo = photos.offset(rand(car.photos.count)).first 
+      image_tag photo.photo.url    
+    elsif
+      image_tag "rails.png" 
+    end
+    
   end
 end
