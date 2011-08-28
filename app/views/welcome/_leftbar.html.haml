@@ -1,13 +1,12 @@
-left-
 -if user_signed_in?
   %p Signed in as user
   = current_user.email
-  =link_to "Sign out"
-  
+  =link_to("Sign out",destroy_user_session_path)  
 -else
   %p Email
   %input
   %p Password
   =password_field_tag
-  %p You must sing in  
+  %p= link_to("Sing Up",new_user_registration_path)
+  %p= link_to("Sing in",new_user_session_path)
 %p= render :partial => "cabinet"
