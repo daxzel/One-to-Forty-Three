@@ -1,15 +1,21 @@
-%head
+=content_for :head do
+  = javascript_include_tag "jquery.js"
+  = javascript_include_tag "photo.js"
+  = javascript_include_tag "/fancybox/jquery.fancybox-1.3.4.js"
+  = stylesheet_link_tag "/fancybox/jquery.fancybox-1.3.4.css"
   = stylesheet_link_tag "pagination"
 %body
   %p= t("all_photos")
   %p= link_to t("upload_photos"), new_car_photo_path(params[:car_id])
   -#=gallery(@photos)
-  %table
-    - (0..@photos.length.div(3)).each do |i|
-      %tr
-        -(0.. [@photos.length - i*3,3].min-1).each do |j|
-          %td
-            =image_tag @photos[i*3+j].photo.url(:medium)
+  #gallery
+    %table
+      - (0..@photos.length.div(3)).each do |i|
+        %tr
+          -(0.. [@photos.length - i*3,3].min-1).each do |j|
+            %td
+              = link_to_function image_tag @photos[i*3+j].photo.url(:medium), :onclick => "fancy();"
+              
 
   #pages.flickr_pagination
     =will_paginate @photos, :container => false

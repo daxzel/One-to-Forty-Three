@@ -1,7 +1,7 @@
+=content_tag :head do
+  = stylesheet_link_tag "pagination"
 %h1 
   =t("listing_car")
-%head
-  = stylesheet_link_tag "pagination"
 %body
   #pages.flickr_pagination
     =will_paginate @cars, :container => false
