@@ -3,7 +3,7 @@ OneTo43::Application.routes.draw do
 
   get "photos/index"
 
-  devise_for :users
+  devise_for :users, :path_names => {:sing_up => "register"}
 
   # welcome
   get "welcome/index"
