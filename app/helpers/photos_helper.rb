@@ -1,14 +1,15 @@
 module PhotosHelper
-	def gallery(photos)
-		photos.each do |image|
-			image_tag image.url(:medium)
-		end
-		#if photos.count>=9
-		#	x = 3
-		#	y = 3
-		#end
-		#for i in 0..x 
-		#	photos
-		#end
-        end 
+  def gallery(photos)
+    result = "%table"
+      (photos.length.div(3)).times do |i|
+        result += "%tr"
+          ([photos.length - i*3,3].min).times do |j|
+            result += "%td"
+              "%a.gallery{:href => photos[i*3+j].photo.url(:large)}"
+                result += image_tag photos[i*3+j].photo.url(:medium)
+              
+          end
+      end
+      result
+  end
 end
