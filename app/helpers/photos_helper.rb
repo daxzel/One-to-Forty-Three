@@ -1,15 +1,9 @@
 module PhotosHelper
   def gallery(photos)
-    result = "%table"
-      (photos.length.div(3)).times do |i|
-        result += "%tr"
-          ([photos.length - i*3,3].min).times do |j|
-            result += "%td"
-              "%a.gallery{:href => photos[i*3+j].photo.url(:large)}"
-                result += image_tag photos[i*3+j].photo.url(:medium)
-              
-          end
+    photos.each do |photo|
+      rcontent_tag :class => "gallery"
+        link_to (image_tag "rails.png"),  :id =>photo.id, :car_id => params[:car_id],  :method =>:delete , :class => "deliting"
+        link_to (image_tag photo.photo.url(:medium)), photo.photo.url(:large) , :class => "gallery"
       end
-      result
   end
 end

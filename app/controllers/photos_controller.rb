@@ -37,7 +37,8 @@ class PhotosController < ApplicationController
 
 	
 	def destroy
-		
+	       photo = @car.photos.find(params[:id])
+               photo.destroy
 	end
 
         private

@@ -1,4 +1,4 @@
 $(document).ready(function() {
-    $("a.gallery").fancybox();
+    $("a.gallery_fancy").fancybox();
 });
 

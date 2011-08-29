@@ -6,18 +6,22 @@
   = stylesheet_link_tag "pagination"
   = stylesheet_link_tag "gallery"
 %body
+  
   #head_photo
     %p= t("all_photos")
-    %p= link_to t("upload_photos"), new_car_photo_path(params[:car_id])
-  -#=gallery(@photos)
-  #gallery
-    -(@photos.length).times do |i|
-      #photo
-        =link_to (image_tag @photos[i].photo.url(:medium)), @photos[i].photo.url(:large) , :class => "gallery"
-        =link_to (image_tag"images/rails.png"), cars_path, :class => "deliting"
-              
-  #pages.flickr_pagination
-    =will_paginate @photos, :container => false
+
+  -#gallery
+    =gallery(@photos)
+  #gallery11
+    #add
+      =link_to (image_tag "plus.png"), new_car_photo_path(params[:car_id])
+    #photos
+      -@photos.each do |photo|
+        #photo.gallery
+          =link_to (image_tag "close.png"),  :id =>photo.id, :car_id => params[:car_id],  :method =>:delete , :class => "deliting"
+          =link_to (image_tag photo.photo.url(:medium)), photo.photo.url(:large) , :class => "gallery_fancy"            
+    #pages.flickr_pagination
+      =will_paginate @photos, :container => false
 
   - content_for :leftbar do
     = render :partial => 'leftbar'

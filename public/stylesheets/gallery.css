@@ -1,8 +1,6 @@
 .gallery {
   background-attachment: scroll;
   background-clip: border-box;
-  background-color: red;
-  background-image: none;
   background-origin: padding-box;
   color: black;
   display: block;
@@ -10,8 +8,6 @@
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 10px;
   font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
   height: 115px;
   line-height: normal;
   margin-bottom: 10px;
@@ -26,29 +22,9 @@
   width: 120px;
 }
 .deliting {
-  background-attachment: scroll;
-  background-clip: border-box;
-  background-color: green;
-  background-image: none;
-  background-origin: padding-box;
-  color: black;
-  display: block;
-  float: left;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  height: 115px;
-  line-height: normal;
-  margin-bottom: 10px;
-  margin-left: 0px;
-  margin-right: 10px;
-  margin-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  text-align: center;
-  width: 10px;
+  text-align: right;
+  position:relative;
+  height: 20px;
+  width: 30px;
 }
+
