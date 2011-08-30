@@ -1,0 +1,11 @@
+- for car in @cars
+  %br
+  %p
+    %strong=car.title
+    =subscribe_car(car)
+  %p=truncate(car.wiki, :length => 100) 
+  %p
+    =link_to t("detail"), car 
+    =link_to t("edit"), edit_car_path(car)
+    =link_to t("delete"), car, :confirm => 'Are you sure?', :method => :delete
+

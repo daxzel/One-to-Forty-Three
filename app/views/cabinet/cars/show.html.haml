@@ -8,9 +8,9 @@
   = @car.wiki
 
 
-= link_to t("edit"), edit_car_path(@car)
+= link_to t("edit"), cabinet_edit_car_path(@car)
 \|
-= link_to t("all_cars"), cars_path
+= link_to t("all_cars"), cabinet_cars_path
 
 - content_for :leftbar do
   = render :partial => 'leftbar'

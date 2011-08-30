@@ -47,6 +47,39 @@ describe Cabinet::PhotosController do
       assigns(:photo).should eq(our_photo) 
     end
   end
+  describe "Unfinished specs" do
+    next
+    describe "GET new" do
+      it "assigns a new photo as @photo" do
+        get :new
+        assigns(:photo).should be_a_new(Photo)
+      end
+    end
 
+    describe "POST create" do
+      describe "with valid params" do
 
+        it "assigns a newly created car as @car" do
+          post :create, :photo => valid_attributes
+          assigns(:photo).should be_a(Car)
+          assigns(:car).should be_persisted
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved car as @car" do
+          Car.any_instance.stub(:save).and_return(false)
+          post :create, :car => {}
+          assigns(:car).should be_a_new(Car)
+        end
+        next
+
+        it "re-renders the 'new' template" do
+          Car.any_instance.stub(:save).and_return(false)
+          post :create, :car => {}
+          response.should render_template("new")
+        end
+      end
+    end
+  end
 end

@@ -15,6 +15,7 @@ OneTo43::Application.routes.draw do
 
   namespace :cabinet do
     resources :photos
+    resources :cars
   end
   
   root :to => "welcome#index"

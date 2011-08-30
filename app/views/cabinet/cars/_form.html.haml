@@ -1,0 +1,4 @@
+= form_for @car, :html => { :multipart => true }  do |f|
+    = f.text_field :title
+    = f.text_area :wiki
+    = f.submit 'Save'

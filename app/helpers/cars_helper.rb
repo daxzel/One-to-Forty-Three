@@ -16,10 +16,17 @@ module CarsHelper
     photos = car.photos
     if photos.length > 0 
       photo = photos.offset(rand(car.photos.count)).first 
-      image_tag photo.photo.url    
-    elsif
+      image_tag photo.photo.url(:medium)    
+    else
       image_tag "rails.png" 
     end
     
+  end
+  def subscribe_car(car)
+    if current_user.cars.include?(car)
+      link_to "[-]", car, :method => :delete, :controller =>"cabinet/cars"
+    else
+      link_to "[+]", car, :method => :post ,:controller=> "cabinet/cars" 
+    end
   end
 end

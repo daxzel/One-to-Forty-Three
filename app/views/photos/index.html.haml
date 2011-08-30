@@ -5,24 +5,21 @@
   = stylesheet_link_tag "/fancybox/jquery.fancybox-1.3.4.css"
   = stylesheet_link_tag "pagination"
   = stylesheet_link_tag "gallery"
-%body
-  
-  #head_photo
-    %p= t("all_photos")
+= t("all_photos")
+.bar  
+  .left.column 
+    .flickr_pagination
+      =will_paginate @photos, :container => false
+  .right.column
+    =link_to (image_tag "plus.png"), new_car_photo_path(params[:car_id])
 
   -#gallery
     =gallery(@photos)
-  #gallery11
-    #add
-      =link_to (image_tag "plus.png"), new_car_photo_path(params[:car_id])
-    #photos
-      -@photos.each do |photo|
-        #photo.gallery
-          =link_to (image_tag "close.png"),  :id =>photo.id, :car_id => params[:car_id],  :method =>:delete , :class => "deliting"
+  .gallery
+    -@photos.each do |photo|
+      .picture 
+        .photo
           =link_to (image_tag photo.photo.url(:medium)), photo.photo.url(:large) , :class => "gallery_fancy"            
-    #pages.flickr_pagination
-      =will_paginate @photos, :container => false
-
   - content_for :leftbar do
     = render :partial => 'leftbar'
 
