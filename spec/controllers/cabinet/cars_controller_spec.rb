@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Cabinet::CarsController do
 
+  include Devise::TestHelpers
+
   describe "GET 'index'" do
     it "should be successful" do
       ted = Factory.create :user
@@ -9,10 +11,10 @@ describe Cabinet::CarsController do
 
       joe = Factory.create :user
 
-      our_car = Factory.create(:car, :user => ted)
-      ted.cars.add(our_car)
-      another_car = Factory.create(:car, :user => joe)
-      joe.cars.add(another_car)
+      our_car = Factory.create(:car)
+      ted.cars << our_car
+      another_car = Factory.create(:car)
+      joe.cars << another_car
       get 'index'
       response.should be_success
       assigns(:cars).should include(our_car)
@@ -27,8 +29,8 @@ describe Cabinet::CarsController do
 
       joe = Factory.create :user
 
-      another_car = Factory.create(:car, :user => joe)
-      joe.cars.add(another_car)
+      another_car = Factory.create(:car)
+      joe.cars << another_car
       get :show, :id => another_car.title 
       assigns(:car).should eq(nil) 
     end
@@ -39,10 +41,10 @@ describe Cabinet::CarsController do
 
       joe = Factory.create :user
 
-      our_car = Factory.create(:car, :user => ted)
-      ted.cars.add(our_car)
-      another_car = Factory.create(:car, :user => joe)
-      joe.cars.add(another_car)
+      our_car = Factory.create(:car)
+      ted.cars << our_car
+      another_car = Factory.create(:car)
+      joe.cars << another_car
 
       get :show, :id => our_car.title
       response.should be_success

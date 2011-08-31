@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(:version => 20110830203153) do
     t.text     "wiki"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "cars_users", :id => false, :force => true do |t|
@@ -50,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20110830203153) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "car_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
