@@ -1,5 +1,5 @@
 =content_for :head do
-  = javascript_include_tag "jquery.js"
+  = javascript_include_tag "jquery.js", "jquery_ujs"
   = javascript_include_tag "gallery.js"
   = javascript_include_tag "/fancybox/jquery.fancybox-1.3.4.js"
   = stylesheet_link_tag "/fancybox/jquery.fancybox-1.3.4.css"
@@ -17,12 +17,8 @@
   -#gallery
     =gallery(@photos)
   .gallery
-    -@photos.each do |photo|
-      .picture 
-        .photo
-          =link_to (image_tag photo.photo.url(:medium)), photo.photo.url(:large) , :class => "gallery_fancy"            
-        .deliting
-          =link_to (image_tag "close.png"),  :id =>photo.id, :car_id => params[:car_id],:controller => "cabinet/photos" ,  :method =>:delete 
+    = render :partial => "photo", :collection => @photos
+
 
 - content_for :leftbar do
   = render :partial => 'leftbar'

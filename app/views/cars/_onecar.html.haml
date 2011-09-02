@@ -1,5 +1,4 @@
-- for car in @cars
-  %br
+%div{:id => "car-#{car.id}"}
   %p
     %strong=car.title
     =subscribe_car(car)

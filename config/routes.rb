@@ -8,16 +8,20 @@ OneTo43::Application.routes.draw do
   # welcome
   get "welcome/index"
   get "welcome/about", :as => "about"
-  
+
   resources :cars do
-    resources :photos
+    member do
+      post :subscribe_user
+      post :unscribe_user
+    end
+    resources :photos 
   end
 
   namespace :cabinet do
     resources :photos
     resources :cars
   end
-  
+
   root :to => "welcome#index"
 
   # The priority is based upon order of creation:

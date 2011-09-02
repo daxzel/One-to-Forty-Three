@@ -20,13 +20,15 @@ module CarsHelper
     else
       image_tag "rails.png" 
     end
-    
   end
+
   def subscribe_car(car)
-    if current_user.cars.include?(car)
-      link_to "[-]", car, :method => :delete, :controller =>"cabinet/cars"
-    else
-      link_to "[+]", car, :method => :post ,:controller=> "cabinet/cars" 
+    if current_user
+      if current_user.cars.include?(car)
+        link_to "[-]", unscribe_user_car_path(car), :method => :post
+      else
+        link_to "[+]", subscribe_user_car_path(car), :method => :post  
+      end
     end
   end
 end

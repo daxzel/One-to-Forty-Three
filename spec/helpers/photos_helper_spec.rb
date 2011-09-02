@@ -10,6 +10,24 @@ require 'spec_helper'
 #     end
 #   end
 # end
+
 describe PhotosHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  pending "should render gallery" do
+    photo = Factory.create(:photo)
+    photo.photo.should_receive(:url).with(:large).and_return("large")
+
+    result = %(
+      <div class="picture">
+          <div class="photo">
+              <a class="gallery_fancy" href="large"><img src="small" alt="alt"></a>
+          </div>
+          <div class="deliting">
+              <a href="/cabinet/photos?id=4&amp;method=delete"><img src="/images/close.png?1314770932" alt="Close"></a>
+          </div>
+      </div>
+    ).gsub(/\s/, "")
+    
+    gallery_photo(photo).gsub(/\s/, "").should == result
+  end
 end

@@ -5,7 +5,7 @@
 #pages.flickr_pagination
   =will_paginate @cars, :container => false
 
-= render :partial => 'onecar'
+= render :partial => 'car', :collection => @cars
 %br
 = link_to t("add_car"), new_car_path
 
