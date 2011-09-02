@@ -1,0 +1,6 @@
+.picture 
+  .photo
+    =link_to (image_tag photo.photo.url(:medium)), photo.photo.url(:large) , :class => "gallery_fancy"            
+  .deliting
+    =link_to image_tag("close.png"),  cabinet_photo_path(photo), :method =>:delete 
+
